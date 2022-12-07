@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>	
+        {% load static %}
+        <meta charset="utf-8">
+        <title>Electricity Bill Predictor</title>
+    
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+        <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/cover/">
+        
+        <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="cover.css" rel="stylesheet">
+        
+    
+        <link rel=”stylesheet” href=”https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css”rel=”nofollow” integrity=”sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm” crossorigin=”anonymous”>
+        
+        <style>
+            #header {
+                margin-top: 50px;
+            }
+    
+            #body {
+                margin: 90px;
+                margin-top: 0px;
+                margin-bottom: 50px;
+            }
+    
+            #main {
+                background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.5)), url('../static/images/cover.jpg');
+            }
+        </style>
+      </head>
+    
+<body class="text-center">
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column" id="main">
+        <header class="masthead mb-auto" id="header">
+            <div class="inner">
+                <h1 class="cover-heading" style="color: white;">Electricity Bill Predictor</h1>
+                <nav class="nav nav-masthead justify-content-center">
+                <a class="nav-link " href="{% url 'homepage' %}">Home</a>
+                <a class="nav-link active" href="{% url 'predictor' %}">Features</a>
+              </nav>
+            </div>
+        </header>
+
+        <p style="color: white; font-size:large">
+            <br>
+            {% if result %}
+                {{result}}<p></p>
+            {% endif %}
+        </p>
+        <main role="main" class="inner cover" style=" width: 40%; margin-left: 35%;">
+            <h3 style="margin-right: 20%;">Predeiction Form</h3>
+            <br>
+            <form action="" method="POST" style="text-align: left;">
+                
+                {% csrf_token %}
+                Heating days : &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp<input type="number" name="Heating_days" required><br><br>
+                Cooling days : &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp<input type="number" name="Cooling_days" required><br><br>
+                Total rooms  : &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp<input type="number" name="TOTROOMS" required><br><br>
+                Number of rooms heated: &nbsp &nbsp &nbsp &nbsp &nbsp<input type="number" name="HEATROOM" required><br><br>
+                Number of rooms cooled: &nbsp &nbsp &nbsp &nbsp &nbsp<input type="number" name="ACROOMS" required><br><br>
+                Total electricity usage (Watts): &nbsp &nbsp<input type="number" name="Electricity_usage" required><br><br>
+                <button class="btn btn-lg btn-dark">PREDICT</button>
+            </form>
+            <br><br>
+        </main>
+
+        <footer class="bg-dark text-center text-lg-start text-white">
+            <div class="row">
+              <div class="column" style="width: 50%; margin-top: 20px; padding-left: 100px; ">
+                  <h5 class="text-uppercase">Group Members:</h5>
+                      <ul class="list-unstyled" >
+                      <li>
+                          <a href="#!" class="text-white">Norbu Dorji (12200068)</a>
+                      </li>
+                      <li>
+                          <a href="#!" class="text-white">Pema Chophel (12200069)</a>
+                      </li>
+                      <li>
+                          <a href="#!" class="text-white">Phuntsho Wangmo (12200074)</a>
+                      </li>
+                      <li>
+                          <a href="#!" class="text-white">Ugyen Tashi (12190103)</a>
+                      </li>
+                      </ul>
+              </div>
+              <div class="column" style="width: 50%; margin-top: 20px; padding-right: 100px;">
+                  <h5 class="text-uppercase">Contact Us:</h5>
+                      <ul class="list-unstyled" >
+                      <li>
+                          <a href="#!" class="text-white">12200068.gcit@rub.edu.bt</a>
+                      </li>
+                      <li>
+                          <a href="#!" class="text-white">12200069.gcit@rub.edu.bt</a>
+                      </li>
+                      <li>
+                          <a href="#!" class="text-white">12200074.gcit@rub.edu.bt</a>
+                      </li>
+                      <li>
+                          <a href="#!" class="text-white">12190103.gcit@rub.edu.bt</a>
+                      </li>
+                      </ul>
+              </div>
+            </div>
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+              © 2022 
+              GCIT
+            </div>
+          
+          </footer>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+        <script src="../../assets/js/vendor/popper.min.js"></script>
+        <script src="../../dist/js/bootstrap.min.js"></script>
+    </div>
+</body>
+</html>
